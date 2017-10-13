@@ -1,0 +1,39 @@
+{
+    "name": "{{#composerVendorName}}{{.}}{{/composerVendorName}}{{^composerVendorName}}{{gitUserId}}{{/composerVendorName}}/{{#composerProjectName}}{{.}}{{/composerProjectName}}{{^composerProjectName}}{{gitRepoId}}{{/composerProjectName}}",
+    {{#artifactVersion}}
+    "version": "{{artifactVersion}}",
+    {{/artifactVersion}}
+    "description": "A Kubernetes PHP Client",
+    "keywords": [
+        "kubernetes",
+        "php",
+        "sdk",
+        "api"
+    ],
+    "homepage": "https://www.cbsinteractive.com/",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "CBS Interactive",
+            "homepage": "https://github.com/cbsi/kubernetes-php-client"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "~2.6",
+        "friendsofphp/php-cs-fixer": "~1.12"
+    },
+    "autoload": {
+        "psr-4": { "{{escapedInvokerPackage}}\\" : "kubernetes/{{srcBasePath}}/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "{{escapedInvokerPackage}}\\" : "kubernetes/{{testBasePath}}/" }
+    }
+}
